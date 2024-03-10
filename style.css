@@ -1,0 +1,64 @@
+
+/* a 태그는 inline element 임.*/
+a {
+    color:black;
+    text-decoration:none;
+}
+
+body{
+    margin:20px;
+}
+
+/* css에서는 이렇게 주석을 씀. h1 태그는 block size의 element이므로, block element 라고 함.*/
+h1 {
+    font-size: 35px;
+    text-align: center; /* 이건 텍스트 정렬만 center로 바꾸는 것임 */
+
+    border-bottom: 1px black solid;
+    margin:0px; 
+    padding:20px;
+    
+    /* 
+        padding과 margin은 다름. padding을 주면, h1에 적힌 텍스트와 border 간의 간격이 생김
+        margin을 주면, h1 콘텐츠 간의 margin이 생김. 즉, h1의 top/left/right/botton에 해당
+        픽셀만큼의 margin이 생기는 것임.
+        */
+
+    /*
+        이 때, 위의 border 부분은 border가 3번이나 중복되기 때문에, 반복타이핑을 피하기 위해서
+        border : 5px solid red; 로 해도 같은 의미임.
+        또한, 여러 태그에 대해 같은 css가 적용될 때는, a,h1 {} 이런 식으로 콤마로 구분시킨 채 
+        여러 태그를 동시에 쓸 수 있음
+    */
+
+    /* display: inline; 으로 하면 inline element 만큼의 크기를 가지게 됨. 
+    위의 a 태그에 대해서도 display: block; 으로 하면 block element 만큼의 크기를 가지게 됨.*/
+}
+
+ol{ /* grid 안에 있는 ol 태그에 대해서만 style을 적용하도록 함 */
+    border-right: 1px solid gray;
+    width:100px;
+    margin:0px;
+    padding:20px;
+    padding-left:33px;
+}
+
+#grid{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+
+#article{
+    padding: 10px;
+}
+@media(max-width:800px){/*스크린의 width가 800px보다 작을 때*/
+    #grid{
+        display: block;
+    }
+    ol{
+        border-right: none;
+    }
+    h1{
+        border-bottom: none;
+    }
+}
